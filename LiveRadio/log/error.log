@@ -1,0 +1,126 @@
+2016-07-26 16:03:40,332 [Thread-2:27056] [radio.views:99] [views:user_manage] [ERROR]- Cannot resolve keyword 'start_time' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-26 16:03:44,548 [Thread-4:24764] [radio.views:99] [views:user_manage] [ERROR]- Cannot resolve keyword 'start_time' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-26 16:16:43,867 [Thread-5:23772] [radio.views:99] [views:user_manage] [ERROR]- 'function' object has no attribute 'order_by'
+2016-07-26 16:16:53,614 [Thread-2:24924] [radio.views:99] [views:user_manage] [ERROR]- 'function' object has no attribute 'order_by'
+2016-07-26 16:16:57,477 [Thread-4:5856] [radio.views:99] [views:user_manage] [ERROR]- 'function' object has no attribute 'order_by'
+2016-07-26 16:43:10,756 [Thread-2:18076] [radio.views:111] [views:add_user] [ERROR]- object of type 'User' has no len()
+2016-07-27 11:12:01,115 [Thread-3:2524] [radio.views:150] [views:del_user] [ERROR]- 'instancemethod' object has no attribute '__getitem__'
+2016-07-27 11:12:29,263 [Thread-4:22888] [radio.views:151] [views:del_user] [ERROR]- 'instancemethod' object has no attribute '__getitem__'
+2016-07-27 11:17:45,127 [Thread-4:27988] [radio.views:151] [views:del_user] [ERROR]- 'WSGIRequest' object has no attribute 'get'
+2016-07-27 13:20:00,029 [Thread-3:10464] [radio.views:104] [views:user_manage] [ERROR]- Cannot resolve keyword 'is_delete' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, id_delete, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-27 13:20:07,644 [Thread-5:30044] [radio.views:104] [views:user_manage] [ERROR]- Cannot resolve keyword 'is_delete' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, id_delete, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-27 13:20:10,650 [Thread-6:28972] [radio.views:104] [views:user_manage] [ERROR]- Cannot resolve keyword 'is_delete' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, id_delete, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-27 13:20:13,358 [Thread-8:20784] [radio.views:104] [views:user_manage] [ERROR]- Cannot resolve keyword 'is_delete' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, id_delete, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-27 13:20:49,303 [Thread-4:5824] [radio.views:104] [views:user_manage] [ERROR]- Cannot resolve keyword 'is_delete' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, id_delete, is_active, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-27 13:26:53,730 [Thread-3:25840] [radio.views:151] [views:del_user] [ERROR]- 'long' object has no attribute 'save'
+2016-07-27 13:28:34,977 [Thread-2:29340] [radio.views:153] [views:del_user] [ERROR]- 'QuerySet' object has no attribute 'username'
+2016-07-27 13:28:43,858 [Thread-5:11188] [radio.views:153] [views:del_user] [ERROR]- 'QuerySet' object has no attribute 'username'
+2016-07-27 13:29:57,483 [Thread-4:2408] [radio.views:154] [views:del_user] [ERROR]- 'QuerySet' object has no attribute 'username'
+2016-07-27 13:30:38,464 [Thread-2:23496] [radio.views:154] [views:del_user] [ERROR]- User matching query does not exist.
+2016-07-27 13:30:48,615 [Thread-4:5576] [radio.views:154] [views:del_user] [ERROR]- User matching query does not exist.
+2016-07-27 13:32:28,999 [Thread-7:30600] [radio.views:154] [views:del_user] [ERROR]- User matching query does not exist.
+2016-07-27 13:33:59,683 [Thread-3:18956] [radio.views:154] [views:del_user] [ERROR]- 'User' object has no attribute 'update'
+2016-07-27 14:01:43,750 [Thread-9:28396] [radio.views:166] [views:live_radio] [ERROR]- object of type 'User' has no len()
+2016-07-27 14:01:46,595 [Thread-11:31528] [radio.views:166] [views:live_radio] [ERROR]- object of type 'User' has no len()
+2016-07-27 14:03:31,532 [Thread-4:31152] [radio.views:166] [views:live_radio] [ERROR]- object of type 'User' has no len()
+2016-07-27 15:21:27,338 [Thread-13:4540] [radio.views:168] [views:live_radio] [ERROR]- 'DateTimeField' object has no attribute 'attrs'
+2016-07-27 15:21:32,720 [Thread-15:29568] [radio.views:168] [views:live_radio] [ERROR]- 'DateTimeField' object has no attribute 'attrs'
+2016-07-27 15:21:58,029 [Thread-2:31276] [radio.views:167] [views:live_radio] [ERROR]- 'DateTimeField' object has no attribute 'attrs'
+2016-07-27 15:22:02,543 [Thread-4:9652] [radio.views:167] [views:live_radio] [ERROR]- 'DateTimeField' object has no attribute 'attrs'
+2016-07-28 09:50:56,548 [Thread-60:34060] [radio.views:166] [views:live_radio] [ERROR]- <ExtendsNode: extends 'base.html'> must be the first tag in the template.
+2016-07-28 09:51:01,967 [Thread-62:29184] [radio.views:166] [views:live_radio] [ERROR]- <ExtendsNode: extends 'base.html'> must be the first tag in the template.
+2016-07-28 11:30:18,720 [Thread-5:35604] [radio.views:168] [views:live_radio] [ERROR]- (1054, "Unknown column 'radio_task.is_delete' in 'field list'")
+2016-07-28 11:30:19,543 [Thread-4:31652] [radio.views:168] [views:live_radio] [ERROR]- (1054, "Unknown column 'radio_task.is_delete' in 'field list'")
+2016-07-28 11:30:23,960 [Thread-7:30120] [radio.views:168] [views:live_radio] [ERROR]- (1054, "Unknown column 'radio_task.is_delete' in 'field list'")
+2016-07-28 13:01:42,546 [Thread-9:34668] [radio.views:168] [views:live_radio] [ERROR]- (1054, "Unknown column 'radio_task.is_delete' in 'field list'")
+2016-07-28 14:21:14,898 [Thread-2:39768] [radio.views:213] [views:del_radio] [ERROR]- Cannot resolve keyword 'title' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, is_active, is_delete, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-28 14:21:27,359 [Thread-5:39080] [radio.views:213] [views:del_radio] [ERROR]- Cannot resolve keyword 'title' into field. Choices are: avatar, date_joined, email, first_name, group, group_id, groups, id, is_active, is_delete, is_staff, is_superuser, last_login, last_name, level, logentry, mobile, password, qq, user_permissions, username
+2016-07-28 14:24:49,269 [Thread-2:23668] [radio.views:166] [views:live_radio] [ERROR]- Cannot resolve keyword 'level' into field. Choices are: callback_url, channel_number, create_time, description, finish_time, id, index, is_delete, start_time, task_status, title, update_time
+2016-07-28 14:24:54,176 [Thread-4:4412] [radio.views:166] [views:live_radio] [ERROR]- Cannot resolve keyword 'level' into field. Choices are: callback_url, channel_number, create_time, description, finish_time, id, index, is_delete, start_time, task_status, title, update_time
+2016-07-28 14:29:57,516 [Thread-3:40468] [radio.views:189] [views:add_radio] [ERROR]- (1062, "Duplicate entry '66' for key 'radio_task_title_53bb5cd7_uniq'")
+2016-07-28 15:40:51,332 [Thread-9:5920] [radio.views:166] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 15:40:56,526 [Thread-11:9940] [radio.views:166] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 15:41:39,982 [Thread-3:2936] [radio.views:166] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 15:46:20,285 [Thread-4:9948] [radio.views:166] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 15:46:57,410 [Thread-2:10592] [radio.views:166] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 15:47:34,471 [Thread-2:13712] [radio.views:167] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 15:48:28,476 [Thread-2:3112] [radio.views:168] [views:live_radio] [ERROR]- Reverse for 'edite_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-28 17:45:18,069 [Thread-7:13300] [radio.views:244] [views:edit_radio] [ERROR]- [u"'2016\u5e747\u67083\u65e5 13:45' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-07-28 17:45:59,321 [Thread-4:324] [radio.views:244] [views:edit_radio] [ERROR]- [u"'2016\u5e747\u67083\u65e5 13:45' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-07-28 17:51:07,003 [Thread-3:6464] [radio.views:245] [views:edit_radio] [ERROR]- [u"'2016\u5e747\u67082\u65e5 13:45' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-07-28 17:51:28,862 [Thread-6:12128] [radio.views:245] [views:edit_radio] [ERROR]- expected string or buffer
+2016-07-28 17:54:47,796 [Thread-3:7044] [radio.views:246] [views:edit_radio] [ERROR]- expected string or buffer
+2016-07-28 17:55:36,171 [Thread-4:13244] [radio.views:246] [views:edit_radio] [ERROR]- expected string or buffer
+2016-07-29 09:34:53,220 [Thread-12:4168] [radio.views:241] [views:edit_radio] [ERROR]- Task matching query does not exist.
+2016-07-29 10:22:28,016 [Thread-41:2736] [radio.views:187] [views:view_history_radio] [ERROR]- Reverse for 'custom_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-29 10:23:10,671 [Thread-2:12400] [radio.views:189] [views:view_history_radio] [ERROR]- Reverse for 'custom_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-29 10:26:06,131 [Thread-3:4172] [radio.views:189] [views:view_history_radio] [ERROR]- Reverse for 'custom_radio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2016-07-29 15:46:46,101 [Thread-2:13876] [radio.views:230] [views:custom_radio] [ERROR]- too many values to unpack
+2016-07-29 16:05:10,016 [Thread-4:5676] [radio.views:231] [views:custom_radio] [ERROR]- too many values to unpack
+2016-07-29 16:05:54,447 [Thread-7:8916] [radio.views:232] [views:custom_radio] [ERROR]- too many values to unpack
+2016-07-29 16:08:13,677 [Thread-3:6924] [radio.views:236] [views:custom_radio] [ERROR]- local variable 'radio_task' referenced before assignment
+2016-07-29 16:09:03,638 [Thread-5:3184] [radio.views:236] [views:custom_radio] [ERROR]- local variable 'radio_task' referenced before assignment
+2016-07-29 16:10:24,786 [Thread-4:3200] [radio.views:232] [views:custom_radio] [ERROR]- 'Manager' object is not iterable
+2016-07-29 16:10:43,312 [Thread-2:15136] [radio.views:232] [views:custom_radio] [ERROR]- 'Manager' object is not callable
+2016-07-29 16:10:48,339 [Thread-5:13428] [radio.views:232] [views:custom_radio] [ERROR]- 'Manager' object is not callable
+2016-07-29 16:11:41,905 [Thread-5:6456] [radio.views:232] [views:custom_radio] [ERROR]- too many values to unpack
+2016-07-29 16:12:22,102 [Thread-2:5636] [radio.views:233] [views:custom_radio] [ERROR]- too many values to unpack
+2016-07-29 16:28:07,128 [Thread-2:3064] [radio.views:234] [views:custom_radio] [ERROR]- 'dict' object has no attribute 'key'
+2016-07-29 16:29:11,344 [Thread-2:14840] [radio.views:236] [views:custom_radio] [ERROR]- 'dict' object has no attribute 'key'
+2016-07-29 16:32:54,661 [Thread-8:9240] [radio.views:234] [views:custom_radio] [ERROR]- too many values to unpack
+2016-07-29 16:46:49,750 [Thread-2:3920] [radio.views:234] [views:custom_radio] [ERROR]- need more than 0 values to unpack
+2016-07-29 16:46:55,604 [Thread-6:13440] [radio.views:234] [views:custom_radio] [ERROR]- need more than 0 values to unpack
+2016-07-29 16:47:22,371 [Thread-2:10012] [radio.views:234] [views:custom_radio] [ERROR]- filter() argument after ** must be a mapping, not list
+2016-07-29 16:47:27,801 [Thread-5:8908] [radio.views:234] [views:custom_radio] [ERROR]- filter() argument after ** must be a mapping, not list
+2016-08-01 14:47:52,161 [Thread-13:28284] [radio.views:315] [views:node] [ERROR]- Invalid block tag: 'endfor', expected 'endblock'
+2016-08-01 14:47:58,778 [Thread-16:27332] [radio.views:315] [views:node] [ERROR]- Invalid block tag: 'endfor', expected 'endblock'
+2016-08-02 11:01:08,091 [Thread-4:23932] [radio.views:329] [views:node_detail] [ERROR]- 'Node' object has no attribute 'title'
+2016-08-02 11:01:14,750 [Thread-8:22008] [radio.views:329] [views:node_detail] [ERROR]- 'Node' object has no attribute 'title'
+2016-08-02 13:47:59,868 [Thread-3:19972] [radio.views:330] [views:node_detail] [ERROR]- 'Manager' object has no attribute 'fiter'
+2016-08-02 13:58:18,265 [Thread-5:15752] [radio.views:279] [views:del_radio] [ERROR]- Task matching query does not exist.
+2016-08-02 13:59:43,273 [Thread-4:23540] [radio.views:280] [views:del_radio] [ERROR]- Task matching query does not exist.
+2016-08-02 14:04:59,584 [Thread-8:7260] [radio.views:280] [views:del_radio] [ERROR]- Task matching query does not exist.
+2016-08-05 10:36:35,631 [Thread-5:1520] [radio.views:275] [views:add_radio] [ERROR]- unsupported operand type(s) for -: 'unicode' and 'str'
+2016-08-05 10:43:34,529 [Thread-8:21512] [radio.views:279] [views:add_radio] [ERROR]- time data '2016-08-05 10:40' does not match format '%Y-%m-%d %H:%M:%S'
+2016-08-05 10:44:27,388 [Thread-3:16668] [radio.views:279] [views:add_radio] [ERROR]- 'datetime.timedelta' object has no attribute 'minute'
+2016-08-05 10:45:25,546 [Thread-2:22900] [radio.views:270] [views:add_radio] [ERROR]- (1062, "Duplicate entry '1' for key 'title'")
+2016-08-05 10:45:37,736 [Thread-5:13564] [radio.views:270] [views:add_radio] [ERROR]- (1062, "Duplicate entry '1' for key 'title'")
+2016-08-05 10:46:41,539 [Thread-2:11192] [radio.views:272] [views:add_radio] [ERROR]- (1062, "Duplicate entry '1' for key 'title'")
+2016-08-05 10:53:42,049 [Thread-2:19060] [radio.views:282] [views:add_radio] [ERROR]- time data '11:50' does not match format '%Y-%m-%d %H:%M'
+2016-08-05 10:54:52,861 [Thread-2:1872] [radio.views:272] [views:add_radio] [ERROR]- (1062, "Duplicate entry '4' for key 'title'")
+2016-08-05 10:58:53,895 [Thread-3:17016] [radio.views:272] [views:add_radio] [ERROR]- (1062, "Duplicate entry '8' for key 'title'")
+2016-08-05 11:01:06,252 [Thread-16:2732] [radio.views:272] [views:add_radio] [ERROR]- (1062, "Duplicate entry '8' for key 'title'")
+2016-08-05 11:01:37,750 [Thread-2:18644] [radio.views:272] [views:add_radio] [ERROR]- (1062, "Duplicate entry '8' for key 'title'")
+2016-08-05 11:12:18,710 [Thread-25:21104] [radio.views:280] [views:add_radio] [ERROR]- can't compare datetime.datetime to unicode
+2016-08-05 11:13:15,763 [Thread-5:17120] [radio.views:280] [views:add_radio] [ERROR]- can't compare datetime.datetime to unicode
+2016-08-05 11:16:44,194 [Thread-27:11972] [radio.views:270] [views:add_radio] [ERROR]- (1062, "Duplicate entry '123' for key 'title'")
+2016-08-05 11:16:56,676 [Thread-32:5388] [radio.views:270] [views:add_radio] [ERROR]- (1062, "Duplicate entry '1234' for key 'title'")
+2016-08-05 11:22:31,785 [Thread-7:7348] [radio.views:270] [views:add_radio] [ERROR]- (1062, "Duplicate entry 'qwe' for key 'title'")
+2016-08-09 10:56:51,578 [Thread-13:2784] [radio.views:359] [views:live_api] [ERROR]- [u"'2016-08-0407:09:06' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-08-09 11:00:03,993 [Thread-3:7888] [radio.views:361] [views:live_api] [ERROR]- [u"'2016080407 906' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-08-09 11:02:56,835 [Thread-2:7196] [radio.views:365] [views:live_api] [ERROR]- [u"'2016080407 906' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-08-09 11:03:15,086 [Thread-3:5332] [radio.views:365] [views:live_api] [ERROR]- [u"'2016-08-04 70906' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+2016-08-16 15:46:35,814 [Thread-2:140568905639680] [radio.views:238] [views:live_radio] [ERROR]- 'int' object has no attribute '__getitem__'
+2016-08-16 15:46:38,108 [Thread-3:140568905639680] [radio.views:238] [views:live_radio] [ERROR]- 'int' object has no attribute '__getitem__'
+2016-08-16 15:46:43,369 [Thread-5:140568905639680] [radio.views:238] [views:live_radio] [ERROR]- 'int' object has no attribute '__getitem__'
+2016-08-16 16:14:54,663 [Thread-54:140630210426624] [radio.views:328] [views:add_radio] [ERROR]- (1062, u"Duplicate entry '7' for key 'title'")
+2016-08-16 16:14:58,265 [Thread-56:140630210426624] [radio.views:328] [views:add_radio] [ERROR]- (1062, u"Duplicate entry '7' for key 'title'")
+2016-08-16 16:14:59,376 [Thread-58:140630210426624] [radio.views:328] [views:add_radio] [ERROR]- (1062, u"Duplicate entry '7' for key 'title'")
+2016-08-16 16:30:55,191 [Thread-135:140630236653312] [radio.views:464] [views:op_log] [ERROR]- (1146, u"Table 'LiveRadio.radio_user' doesn't exist")
+2016-08-16 16:39:17,311 [Thread-3:139903442671360] [radio.views:342] [views:add_radio] [ERROR]- 'datetime.timedelta' object has no attribute 'minute'
+2016-08-16 16:39:20,669 [Thread-5:139903442671360] [radio.views:342] [views:add_radio] [ERROR]- 'datetime.timedelta' object has no attribute 'minute'
+2016-08-19 09:30:12,447 [Thread-12:140441295337216] [radio.views:234] [views:live_radio] [ERROR]- 'builtin_function_or_method' object has no attribute 'strftime'
+2016-08-19 09:30:14,987 [Thread-14:140441295337216] [radio.views:234] [views:live_radio] [ERROR]- 'builtin_function_or_method' object has no attribute 'strftime'
+2016-08-19 09:31:03,833 [Thread-3:140051480884992] [radio.views:234] [views:live_radio] [ERROR]- 'builtin_function_or_method' object has no attribute 'strftime'
+2016-08-19 09:31:44,813 [Thread-3:140172834371328] [radio.views:233] [views:live_radio] [ERROR]- 'builtin_function_or_method' object has no attribute 'strftime'
+2016-08-19 09:55:12,634 [Thread-2:140640019236608] [radio.views:225] [views:live_radio] [ERROR]- 'module' object is not callable
+2016-08-19 09:55:14,952 [Thread-4:140640019236608] [radio.views:225] [views:live_radio] [ERROR]- 'module' object is not callable
+2016-08-19 09:55:16,628 [Thread-6:140640019236608] [radio.views:225] [views:live_radio] [ERROR]- 'module' object is not callable
+2016-08-19 09:56:36,197 [Thread-3:140134818608896] [radio.views:226] [views:live_radio] [ERROR]- 'module' object is not callable
+2016-08-19 09:57:22,936 [Thread-3:140364196943616] [radio.views:226] [views:live_radio] [ERROR]- 'module' object is not callable
+2016-08-19 10:20:30,062 [Thread-58:139855073900288] [radio.views:330] [views:add_radio] [ERROR]- unconverted data remains: :00
+2016-08-19 10:21:19,541 [Thread-67:139855073900288] [radio.views:351] [views:del_radio] [ERROR]- get() returned more than one Task -- it returned 2!
+2016-08-19 10:30:46,992 [Thread-12:139741158160128] [radio.views:351] [views:del_radio] [ERROR]- 'decimal' codec can't encode characters in position 0-3: invalid decimal Unicode string
+2016-08-19 10:32:39,889 [Thread-15:140116664252160] [radio.views:351] [views:del_radio] [ERROR]- invalid literal for int() with base 10: ''
+2016-08-19 10:33:01,599 [Thread-4:140386374776576] [radio.views:352] [views:del_radio] [ERROR]- invalid literal for int() with base 10: ''
+2016-08-19 10:33:17,139 [Thread-4:139646228969216] [radio.views:352] [views:del_radio] [ERROR]- invalid literal for int() with base 10: ''

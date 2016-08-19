@@ -1,0 +1,78 @@
+#!/usr/bin/env python2.7
+#coding=utf-8
+import requests
+import json
+import urllib2
+# based url and required header
+
+class zabbix_api:
+    def __init__(self):
+        self.url = 'http://192.168.2.65/api_jsonrpc.php'  # 修改URL
+        self.header = {"Content-Type": "application/json"}
+
+    def user_login(self):
+        data = json.dumps({
+            "jsonrpc": "2.0",
+            "method": "user.login",
+            "params": {
+                "user": "Admin",  # 修改用户名
+                "password": "zabbix"  # 修改密码
+            },
+            "id": 0
+        })
+        request = urllib2.Request(self.url, data)
+        for key in self.header:
+            request.add_header(key, self.header[key])
+        try:
+            result = urllib2.urlopen(request)
+        except URLError as e:
+            print "33[041m 用户认证失败，请检查 !33[0m", e.code
+        else:
+            response = json.loads(result.read())
+            result.close()
+            # print response['result']
+            self.authID = response['result']
+            return self.authID
+        
+    def host_get(self, hostName=''):
+        data = json.dumps({
+            "jsonrpc": "2.0",
+            "method": "host.get",
+            "params": {
+                "output": "extend",
+                "filter": {"host": hostName}
+            },
+            "auth": self.user_login(),
+            "id": 1
+        })
+
+        request = urllib2.Request(self.url, data)
+        print "1"
+        for key in self.header:
+            request.add_header(key, self.header[key])
+        try:
+            result = urllib2.urlopen(request)
+        except URLError as e:
+            if hasattr(e, 'reason'):
+                print 'We failed to reach a server.'
+                print 'Reason: ', e.reason
+            elif hasattr(e, 'code'):
+                print 'The server could not fulfill the request.'
+                print 'Error code: ', e.code
+            else:
+                pass
+        response = json.loads(result.read())
+        print response
+        result.close()
+        print "主机数量: %s" % (len(response['result']))
+        for host in response['result']:
+            status = {"0": "OK", "1": "Disabled"}
+            available = {"0": "Unknown", "1": "available", "2": "Unavailable"}
+            # print host
+            if len(hostName) == 0:
+                print "HostID : %s HostName : %s  Status :%s Available :%s" % (
+                    host['hostid'], host['name'], status[host['status']], available[host['available']])
+            else:
+                print "HostID : %s HostName : %s  Status :%s Available :%s" % (
+                    host['hostid'], host['name'], status[host['status']], available[host['available']])
+            return host['hostid']

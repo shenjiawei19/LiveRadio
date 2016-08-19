@@ -1,0 +1,641 @@
+
+2016-07-26 14:28:25,512 [Thread-10:17756] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/user_list.html
+2016-07-26 14:28:34,644 [Thread-11:14412] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-26 14:28:42,721 [Thread-13:30712] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-26 14:55:59,663 [Thread-48:29136] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-26 15:19:49,602 [Thread-78:20568] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-26 15:23:53,891 [Thread-88:24476] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/user_list.html
+2016-07-26 15:39:09,680 [Thread-102:5580] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-26 16:31:12,637 [Thread-6:28524] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /user/add_user/
+2016-07-26 17:07:25,196 [Thread-4:30164] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/add_user/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 112, in add_user
+    email = add_u.cleaned_date["email"]
+AttributeError: 'AddUserForm' object has no attribute 'cleaned_date'
+2016-07-26 17:07:57,430 [Thread-2:28208] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/add_user/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 151, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view radio.views.add_user didn't return an HttpResponse object. It returned None instead.
+2016-07-26 17:08:21,880 [Thread-4:30540] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/add_user/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 151, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view radio.views.add_user didn't return an HttpResponse object. It returned None instead.
+2016-07-26 17:09:47,950 [Thread-2:28688] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/add_user/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 120, in add_user
+    return render(request, 'user_list.html', locals())
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Python27\lib\site-packages\django\template\defaulttags.py", line 162, in render
+    len_values = len(values)
+  File "C:\Python27\lib\site-packages\django\utils\functional.py", line 227, in inner
+    return func(self._wrapped, *args)
+TypeError: object of type 'User' has no len()
+2016-07-26 17:09:59,937 [Thread-4:7116] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/add_user/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 120, in add_user
+    return render(request, 'user_list.html', locals())
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 74, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 209, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "C:\Python27\lib\site-packages\django\template\debug.py", line 79, in render_node
+    return node.render(context)
+  File "C:\Python27\lib\site-packages\django\template\defaulttags.py", line 162, in render
+    len_values = len(values)
+  File "C:\Python27\lib\site-packages\django\utils\functional.py", line 227, in inner
+    return func(self._wrapped, *args)
+TypeError: object of type 'User' has no len()
+2016-07-26 17:46:11,700 [Thread-2:24156] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /user/add_user/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 113, in add_user
+    group = Group.objects.get(group=request.POST.get('group'))
+  File "C:\Python27\lib\site-packages\django\db\models\manager.py", line 127, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\db\models\query.py", line 325, in get
+    clone = self.filter(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\db\models\query.py", line 679, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\db\models\query.py", line 697, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "C:\Python27\lib\site-packages\django\db\models\sql\query.py", line 1301, in add_q
+    clause, require_inner = self._add_q(where_part, self.used_aliases)
+  File "C:\Python27\lib\site-packages\django\db\models\sql\query.py", line 1328, in _add_q
+    current_negated=current_negated, connector=connector, allow_joins=allow_joins)
+  File "C:\Python27\lib\site-packages\django\db\models\sql\query.py", line 1144, in build_filter
+    lookups, parts, reffed_aggregate = self.solve_lookup_type(arg)
+  File "C:\Python27\lib\site-packages\django\db\models\sql\query.py", line 1030, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Python27\lib\site-packages\django\db\models\sql\query.py", line 1386, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+FieldError: Cannot resolve keyword 'group' into field. Choices are: id, name, user
+2016-07-26 17:52:19,723 [Thread-4:25796] [django.request:170] [base:get_response] [WARNING]- Not Found: /user_manage/
+2016-07-26 17:53:09,381 [Thread-2:23928] [django.request:170] [base:get_response] [WARNING]- Not Found: /user_manage/
+2016-07-26 18:08:19,618 [Thread-20:5236] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-26 18:08:22,061 [Thread-21:26684] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-27 09:20:11,151 [Thread-16:29416] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-27 09:20:14,039 [Thread-18:30132] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-27 11:33:52,092 [Thread-9:7188] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-27 11:37:38,674 [Thread-28:4456] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-27 12:22:53,474 [Thread-44:23764] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-27 13:53:24,563 [Thread-5:13548] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-27 13:53:27,789 [Thread-6:7164] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-27 14:18:07,743 [Thread-2:19552] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-27 14:45:13,780 [Thread-121:30812] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/uesr_search.html
+2016-07-27 14:45:17,950 [Thread-122:17148] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-27 14:48:58,674 [Thread-7:28088] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-27 15:17:27,852 [Thread-2:21004] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, del_user
+  File "D:\Django\LiveRadio\radio\views.py", line 13, in <module>
+    from forms import *
+  File "D:\Django\LiveRadio\radio\forms.py", line 35, in <module>
+    class AddRadioForm(forms.Form):
+  File "D:\Django\LiveRadio\radio\forms.py", line 59, in AddRadioForm
+    "class": "form-control"}),
+  File "C:\Python27\lib\site-packages\django\forms\fields.py", line 412, in __init__
+    super(BaseTemporalField, self).__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'attrs'
+2016-07-27 15:19:20,148 [Thread-6:29804] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, del_user
+  File "D:\Django\LiveRadio\radio\views.py", line 13, in <module>
+    from forms import *
+  File "D:\Django\LiveRadio\radio\forms.py", line 35, in <module>
+    class AddRadioForm(forms.Form):
+  File "D:\Django\LiveRadio\radio\forms.py", line 59, in AddRadioForm
+    "class": "form-control"}),
+  File "C:\Python27\lib\site-packages\django\forms\fields.py", line 412, in __init__
+    super(BaseTemporalField, self).__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'attrs'
+2016-07-27 15:19:58,792 [Thread-9:30856] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, del_user
+  File "D:\Django\LiveRadio\radio\views.py", line 13, in <module>
+    from forms import *
+  File "D:\Django\LiveRadio\radio\forms.py", line 35, in <module>
+    class AddRadioForm(forms.Form):
+  File "D:\Django\LiveRadio\radio\forms.py", line 58, in AddRadioForm
+    start_time = forms.DateTimeField(widget=forms.DateTimeField(attrs={"placeholder": "开始时间", "required": "required",
+  File "C:\Python27\lib\site-packages\django\forms\fields.py", line 412, in __init__
+    super(BaseTemporalField, self).__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'attrs'
+2016-07-27 15:20:49,128 [Thread-12:27296] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, del_user
+  File "D:\Django\LiveRadio\radio\views.py", line 13, in <module>
+    from forms import *
+  File "D:\Django\LiveRadio\radio\forms.py", line 59
+    over_time = forms.DateTimeField(widget=forms.DateTimeField)
+            ^
+SyntaxError: invalid syntax
+2016-07-27 17:28:46,242 [Thread-4:23944] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/add_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 174, in add_radio
+    title = radio.cleaned_data["title"]
+AttributeError: 'AddRadioForm' object has no attribute 'cleaned_data'
+2016-07-27 17:43:16,368 [Thread-7:28336] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio/css/docs.css
+2016-07-27 17:43:16,371 [Thread-8:25368] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio/bootstrap-datetimepicker/css/datetimepicker.css
+2016-07-27 17:44:14,038 [Thread-21:31128] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio/css/docs.css
+2016-07-27 17:44:14,073 [Thread-22:9412] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio/bootstrap-datetimepicker/css/datetimepicker.css"
+2016-07-27 17:57:11,848 [Thread-8:33644] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-27 18:23:46,517 [Thread-10:24144] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+2016-07-27 18:23:46,529 [Thread-11:28336] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_clock.gif
+2016-07-27 18:24:33,328 [Thread-25:33616] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+2016-07-27 18:24:33,338 [Thread-26:4508] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_clock.gif
+2016-07-27 18:29:52,727 [Thread-85:21672] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+2016-07-27 18:29:52,734 [Thread-86:33368] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_clock.gif
+2016-07-27 18:31:19,618 [Thread-99:24144] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_calendar.gif
+2016-07-27 18:31:19,627 [Thread-100:28336] [django.request:170] [base:get_response] [WARNING]- Not Found: /missing-admin-media-prefix/img/icon_clock.gif
+2016-07-28 09:09:38,191 [Thread-3:19588] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-28 10:33:51,637 [Thread-3:32748] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-28 10:57:46,948 [Thread-40:14652] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-07-28 13:10:37,466 [Thread-7:34712] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/uesr_search.html
+2016-07-28 13:10:41,759 [Thread-9:12924] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/user_list.html
+2016-07-28 13:10:48,203 [Thread-12:33104] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/user_list.html
+2016-07-28 13:17:03,092 [Thread-7:34184] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/add_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 180, in add_radio
+    finish_time = radio.cleaned_data["finish_time"]
+KeyError: 'finish_time'
+2016-07-28 13:24:45,181 [Thread-5:36376] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/add_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 190, in add_radio
+    print describe
+NameError: global name 'describe' is not defined
+2016-07-28 13:37:42,891 [Thread-2:37572] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/add_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, del_user, add_radio, test
+  File "D:\Django\LiveRadio\radio\views.py", line 177
+    radio = AddRadioForm(request.POST)
+        ^
+IndentationError: expected an indented block
+2016-07-28 14:48:57,871 [Thread-11:28968] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_ra123dio/123
+2016-07-28 17:20:11,193 [Thread-11:2220] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/uesr_search.html
+2016-07-28 18:04:44,223 [Thread-5:10732] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-28 18:04:48,581 [Thread-7:12184] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content.html
+2016-07-28 18:05:48,573 [Thread-9:11584] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content.html
+2016-07-29 09:36:02,075 [Thread-6:9784] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content.html
+2016-07-29 09:37:04,256 [Thread-8:12048] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content.html
+2016-07-29 09:37:45,493 [Thread-9:5936] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content.html
+2016-07-29 09:37:53,006 [Thread-13:1728] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-29 09:37:55,642 [Thread-15:3052] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/user_list.html
+2016-07-29 09:38:24,750 [Thread-19:11548] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/uesr_search.html
+2016-07-29 09:38:29,815 [Thread-23:11640] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/user_list.html
+2016-07-29 09:38:32,937 [Thread-25:11600] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-07-29 09:38:37,663 [Thread-27:4632] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/user_list.html
+2016-07-29 10:13:11,677 [Thread-11:3948] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/view_history_radio/content_post.html
+2016-07-29 10:13:37,276 [Thread-14:9556] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/content_post.html
+2016-07-29 10:18:47,881 [Thread-39:5984] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/view_history_radio/content_post.html
+2016-07-29 16:33:55,964 [Thread-2:11976] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/custom_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, \
+  File "D:\Django\LiveRadio\radio\views.py", line 226
+    radio_task = radio_task.filter(search[0]=search[1])
+SyntaxError: keyword can't be an expression
+2016-07-29 17:11:37,236 [Thread-43:14200] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /index/
+2016-08-02 15:59:52,809 [Thread-2:16156] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 32, in do_login
+    print user_hidden
+UnboundLocalError: local variable 'user_hidden' referenced before assignment
+2016-08-04 15:07:21,806 [Thread-16:15952] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-08-04 15:13:35,711 [Thread-2:9084] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /index/
+2016-08-05 10:14:42,453 [Thread-15:11644] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/register_email
+2016-08-05 10:29:15,683 [Thread-2:9904] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_radio/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Python27\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\LiveRadio\urls.py", line 14, in <module>
+    url(r'^',include('radio.urls'))
+  File "C:\Python27\lib\site-packages\django\conf\urls\__init__.py", line 33, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Python27\Lib\importlib\__init__.py", line 37, in import_module
+    __import__(name)
+  File "D:\Django\LiveRadio\radio\urls.py", line 20, in <module>
+    from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, \
+  File "D:\Django\LiveRadio\radio\views.py", line 267
+    reason = {"erro": }
+                      ^
+SyntaxError: invalid syntax
+2016-08-05 10:43:05,512 [Thread-2:23464] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /index/
+2016-08-05 11:15:21,061 [Thread-7:9172] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-05 11:23:15,859 [Thread-11:9684] [django.request:170] [base:get_response] [WARNING]- Not Found: /l
+2016-08-09 10:56:42,092 [Thread-12:8552] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 360, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: [<Task: 1>, <Task: 2>, <Task: 3>, <Task: 4>, <Task: 8>, <Task: 1234>, <Task: qwe>, <Task: qwe2>, <Task: asd>, <Task: 11111>, <Task: 123124>, <Task: 123414>] is not JSON serializable
+2016-08-09 10:56:51,596 [Thread-13:2784] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 360, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+UnboundLocalError: local variable 'reason' referenced before assignment
+2016-08-09 10:58:37,145 [Thread-2:12076] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 361, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: [<Task: 1>, <Task: 2>, <Task: 3>, <Task: 4>, <Task: 8>, <Task: 1234>, <Task: qwe>, <Task: qwe2>, <Task: asd>, <Task: 11111>, <Task: 123124>, <Task: 123414>] is not JSON serializable
+2016-08-09 10:59:22,792 [Thread-2:5260] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 362, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: [<Task: 1>, <Task: 2>, <Task: 3>, <Task: 4>, <Task: 8>, <Task: 1234>, <Task: qwe>, <Task: qwe2>, <Task: asd>, <Task: 11111>, <Task: 123124>, <Task: 123414>] is not JSON serializable
+2016-08-09 11:00:03,994 [Thread-3:7888] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 362, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+UnboundLocalError: local variable 'reason' referenced before assignment
+2016-08-09 11:03:33,855 [Thread-4:7988] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 366, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: [<Task: 1>, <Task: 2>, <Task: 3>, <Task: 4>, <Task: 8>, <Task: 1234>, <Task: qwe>, <Task: qwe2>, <Task: asd>, <Task: 11111>, <Task: 123124>, <Task: 123414>] is not JSON serializable
+2016-08-09 11:04:46,269 [Thread-2:2372] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 367, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: [<Task: 1>, <Task: 2>, <Task: 3>, <Task: 4>, <Task: 8>, <Task: 1234>, <Task: qwe>, <Task: qwe2>, <Task: asd>, <Task: 11111>, <Task: 123124>, <Task: 123414>] is not JSON serializable
+2016-08-09 11:12:13,447 [Thread-2:3004] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 364, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: datetime.datetime(2016, 8, 5, 7, 25, tzinfo=<UTC>) is not JSON serializable
+2016-08-09 11:12:41,599 [Thread-2:6828] [django.request:256] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /live_api/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Django\LiveRadio\radio\views.py", line 365, in live_api
+    return HttpResponse(json.dumps(reason), content_type="application/json")
+  File "C:\Python27\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Python27\Lib\json\encoder.py", line 201, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python27\Lib\json\encoder.py", line 264, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python27\Lib\json\encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: datetime.datetime(2016, 8, 5, 7, 25, tzinfo=<UTC>) is not JSON serializable
+2016-08-11 09:21:02,368 [Thread-19:2272] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/uesr_search.html
+2016-08-11 09:21:48,543 [Thread-23:9028] [django.request:170] [base:get_response] [WARNING]- Not Found: /user/index.html
+2016-08-11 10:26:58,009 [Thread-7:9832] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/index.html
+2016-08-11 10:33:19,013 [Thread-3:8288] [django.request:170] [base:get_response] [WARNING]- Not Found: /live_radio/index.html
+2016-08-15 18:16:58,662 [Thread-5:139816937072384] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-15 18:16:58,673 [Thread-6:139816937072384] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-16 14:00:10,992 [Thread-5:140214951491328] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-16 15:24:40,588 [Thread-10:140399876364032] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-16 15:24:40,654 [Thread-11:140399876364032] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-16 15:25:12,245 [Thread-25:140399893149440] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 15:26:26,628 [Thread-32:140399893149440] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 15:53:50,665 [Thread-7:140320398370560] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 15:54:15,391 [Thread-11:140320398370560] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 15:54:36,387 [Thread-13:140320398370560] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 15:58:31,652 [Thread-15:140320398370560] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 15:58:55,912 [Thread-20:140320398370560] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:03:03,389 [Thread-14:140630227474176] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:03:13,756 [Thread-17:140630227474176] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:04:09,109 [Thread-27:140630227474176] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:14:54,552 [Thread-53:140630210426624] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:14:58,150 [Thread-55:140630210426624] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:14:59,292 [Thread-57:140630210426624] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:16:39,509 [Thread-75:140630227474176] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:16:49,748 [Thread-77:140630227474176] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:17:23,195 [Thread-82:140630227474176] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:34:25,359 [Thread-3:139994071897856] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-16 16:34:29,925 [Thread-4:139993855031040] [django.request:182] [base:get_response] [WARNING]- Not Found: /admin
+2016-08-16 16:36:47,795 [Thread-65:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:12,304 [Thread-70:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:14,073 [Thread-72:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:14,575 [Thread-74:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:14,898 [Thread-76:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:25,691 [Thread-78:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:31,651 [Thread-80:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:33,768 [Thread-82:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:34,192 [Thread-84:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:34,481 [Thread-86:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:37:34,707 [Thread-88:139993838245632] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:38:23,154 [Thread-2:140399697356544] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:38:25,294 [Thread-4:140399697356544] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:39:17,290 [Thread-2:139903442671360] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:39:20,653 [Thread-4:139903442671360] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:40:27,304 [Thread-2:139820378617600] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-16 16:41:27,454 [Thread-2:140162029844224] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-18 09:10:08,895 [Thread-3:140303678949120] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-18 09:17:43,612 [Thread-2:140333147330304] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_api
+2016-08-18 09:17:43,747 [Thread-4:140333147330304] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-18 09:17:44,245 [Thread-5:140333147330304] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-18 09:18:19,102 [Thread-29:140333147330304] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-19 09:30:09,396 [Thread-3:140441295337216] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-19 10:05:01,083 [Thread-6:139959003760384] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-19 10:20:08,348 [Thread-53:139855073900288] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-19 10:20:30,045 [Thread-57:139855073900288] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-19 10:21:04,686 [Thread-63:139855073900288] [django.request:182] [base:get_response] [WARNING]- Not Found: /live_radio/add_radio
+2016-08-19 10:40:10,607 [Thread-35:140187933865728] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/radio/node_detail/add/
+Traceback (most recent call last):
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 1435, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 184, in inner
+    return func(*args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 1382, in changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 714, in log_addition
+    object_repr=force_text(object),
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "/home/shenjiawei/projects/LiveRadio/radio/models.py", line 109, in __unicode__
+    return self.node_application
+AttributeError: 'Node_detail' object has no attribute 'node_application'
+2016-08-19 10:40:42,619 [Thread-44:140187925473024] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/radio/node_detail/add/
+Traceback (most recent call last):
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 1435, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/decorators.py", line 184, in inner
+    return func(*args, **kwargs)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 1382, in changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/contrib/admin/options.py", line 714, in log_addition
+    object_repr=force_text(object),
+  File "/home/shenjiawei/projects/LiveRadio_venv/local/lib/python2.7/site-packages/django/utils/encoding.py", line 78, in force_text
+    s = six.text_type(s)
+  File "/home/shenjiawei/projects/LiveRadio/radio/models.py", line 109, in __unicode__
+    return self.node_application
+AttributeError: 'Node_detail' object has no attribute 'node_application'
+2016-08-19 10:50:08,006 [Thread-5:140587672110848] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-19 10:50:08,023 [Thread-6:140587672110848] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2016-08-19 10:53:00,963 [Thread-35:140587645884160] [django.request:182] [base:get_response] [WARNING]- Not Found: /node_detail//
