@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<!--导航-->
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+    <div class="list-group">
+        <a href="{% url 'node' %}" class="list-group-item active">刷新</a>
+    </div>
+</div>
+<div class="col-md-10">
+<div class="page-header">
+    <h1 >节点状态查询</h1>
+</div>
+            <ul class="nav nav-tabs" >
+                <li class="active" >
+                    <a href="{% url 'node' %}" >节点列表</a>
+                </li>
+            </ul>
+<table class="table">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>节点类型</th>
+        <th>节点名</th>
+        <th>关联IP</th>
+        <th>服务状态</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for n in node_all %}
+    <tr>
+        <th id="">{{ n.id }}</th>
+        <th scope="row" >{{ n.category }}</th>
+        <td >{{ n.name }}</td>
+        <td >
+            <div role="presentation" class="dropdown">
+                <div class="btn btn-default dropdown-toggle" >
+                    <a href="{% url 'node_detail' %}?name={{ n.id }}">详情</a>
+                </div>
+            </div>
+        </td>
+        <td >{{ n.node_status }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--导航-->
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+    <div class="list-group">
+        <a href="{% url 'live_channel' %}" class="list-group-item active">刷新</a>
+        <a href="" role="button"  class="list-group-item" style="display: {{ live_channel.op }}" data-toggle="modal" data-target="#myChannel">添加直播频道</a>
+    </div>
+</div>
+<div class="col-md-10">
+<div class="page-header">
+    <h1 >频道管理</h1>
+</div>
+            <ul class="nav nav-tabs" >
+                <li class="active" >
+                    <a href="{% url 'live_channel' %}" >频道列表</a>
+                </li>
+            </ul>
+<table class="table">
+    <thead>
+    <tr>
+        <th>频道</th>
+        <th>信号源</th>
+        <th>描述</th>
+        <th>URL</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for c in channel_all %}
+    <tr>
+        <th id = "{{forloop.counter}}channel">{{ c.channel}}</th>
+        <th scope="row" id = "{{forloop.counter}}signal">{{ c.signal }}</th>
+        <td id = "{{forloop.counter}}channel_info">{{ c.channel_info }}</td>
+        <td id = "{{forloop.counter}}url">{{ c.url }}</td>
+        <td >
+            <div role="presentation" class="dropdown">
+                <div class="btn btn-default dropdown-toggle" style="display: {{ live_channel.edit }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    操作<span class="caret"></span>
+                </div>
+
+                <ul class="dropdown-menu">
+                    <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#channeled" onclick="edChannel(this)">编辑</a></li>
+                    <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#channeldel" onclick="delChannel(this)">删除</a></li>
+{#                    <li><a href="#">全局置顶</a></li>#}
+                </ul>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    <script language="javascript">
+        function delChannel(event) {
+            var id = event.id;
+            var channel = document.getElementById(id+"channel").innerHTML;
+            $('#delchannel').attr("value","频道号为"+channel);
+        }
+        </script>
+     <script language="javascript">
+        function edChannel(event) {
+            var id = event.id;
+            var channel = document.getElementById(id+"channel").innerHTML;
+            var signal = document.getElementById(id+"signal").innerHTML;
+            var info = document.getElementById(id+"channel_info").innerHTML;
+            var url = document.getElementById(id+"url").innerHTML;
+            $('#channel').attr("value",channel);
+            $('#signal').attr("value",signal);
+            $('#info').attr("value",info);
+            $('#url').attr("value",url);
+        }
+    </script>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myChannel" tabindex="-1" role="dialog" aria-labelledby="myChannelLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="display: {{ live_channel.op }}" id="myChannelLabel">添加直播频道</h4>
+            </div>
+            <form action="{% url 'add_channel' %}" method="get">
+                {% csrf_token %}
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="channel">频道号</label>
+                        {{ channel_form.channel }}
+                    </div>
+                    <div class="form-group">
+                        <label for="signal">信号源</label>
+                        {{ channel_form.signal }}
+                    </div>
+                    <div class="form-group">
+                        <label for="channel_info">描述</label>
+                        {{ channel_form.channel_info }}
+                    </div>
+                    <div class="form-group" >
+                        <label for="url">url</label>
+                        {{ channel_form.url }}
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="add_channel" type="submit" class="btn btn-primary">提交</button>
+            </div>
+            </form>
+{#            <div class="tips-error bg-danger" id="Error"></div>#}
+        </div>
+    </div>
+</div><!-- Modal -->
+<!-- Modal2 -->
+<div class="modal fade" id="channeled" tabindex="-1" role="dialog" aria-labelledby="radioediteLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="radioediteLabel">编辑直播任务</h4>
+            </div>
+            <form action="{% url 'edit_channel' %}" method="GET">
+                {% csrf_token %}
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="channel">频道号</label>
+                        <input id= "channel" name="channel"  required= "required" readonly="readonly" class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signal">信号源</label>
+                        <input id= "signal" name="signal" required= "required" class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="info">描述</label>
+                        <input id= "info" name="info" required= "required" class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="url">url</label>
+                        <input id= "url" name="url"  required= "required" class ="form-control" value="">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div><!-- Modal2 -->
+    <!-- Modal3 -->
+<div class="modal fade" id="channeldel" tabindex="-1" role="dialog" aria-labelledby="channeldelLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="channeldelLabel">确认删除直播任务</h4>
+            </div>
+            <form action="{% url 'del_channel' %}" method="get">
+                <input type="text"  readonly='readonly' id='delchannel' name='delchannel' class="form-control" value="" >
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div><!-- Modal3 -->
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <title>URL监控</title>
+    <script src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+</head>
+<body>
+    <div id="container" style="width:800px;height: 400px">
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('#container').highcharts({
+            title:{
+                text:'highcharts demo'
+            },
+            xAxis:{
+                categories:['1','2','3']
+            },
+            yAxisL:{
+                title:{
+                    text:'description'
+                }
+            },
+            series:[{
+                name:'beijing',
+                date:[7.0,6.9,9.5]
+            },  {
+                name:'shanghai',
+                data:[0.2,0.8, 5.7]
+            }]
+        });
+    });
+</script>
