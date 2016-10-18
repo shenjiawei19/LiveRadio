@@ -32,9 +32,12 @@
             {{ login_form.username }}
             <label for="inputPassword" class="sr-only">密码</label>
             {{ login_form.password }}
-            <div class="checkbox">
+            <div class="radio" >
                 <label>
-                    <input type="checkbox" value="记住密码"> 记住密码
+                    <input name="app" type="radio" value="liveRadio"> 直播管理
+                </label>
+                <label>
+                    <input name="app" type="radio" value="Monitor"> 运维监控
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>

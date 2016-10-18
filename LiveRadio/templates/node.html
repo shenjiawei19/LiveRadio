@@ -32,15 +32,15 @@
     </thead>
     <tbody>
     {% for n in node_all %}
-    <tr>
+    <tr style="background: {{ n.style }}">
         <th id="">{{ n.id }}</th>
         <th scope="row" >{{ n.category }}</th>
         <td >{{ n.name }}</td>
         <td >
             <div role="presentation" class="dropdown">
-                <div class="btn btn-default dropdown-toggle" >
-                    <a href="{% url 'node_detail' %}?name={{ n.id }}">详情</a>
-                </div>
+                <a href="{% url 'node_detail' %}?name={{ n.id }}" class="btn btn-default dropdown-toggle" >
+                    <div href="{% url 'node_detail' %}?name={{ n.id }}">详情</div>
+                </a>
             </div>
         </td>
         <td >{{ n.node_status }}</td>
@@ -48,6 +48,25 @@
     {% endfor %}
     </tbody>
 </table>
+
+<nav class="pull-right">
+    <ul class="pagination">
+        {% if node_all.has_previous %}
+            <li><a href="?page={{ node_all.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        {% else %}
+           <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        {% endif %}
+        {% for x in count %}
+        {# Each "contact" is a Contact model object. #}
+        <li><a href="?page={{ x }}">{{ x }}</a></li>
+        {% endfor %}
+        {% if node_all.has_next %}
+            <li><a href="?page={{ node_all.next_page_number }}" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+        {% else %}
+           <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+        {% endif %}
+    </ul>
+</nav>
 
 </div>
 </div>

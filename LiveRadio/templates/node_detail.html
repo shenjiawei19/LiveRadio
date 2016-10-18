@@ -33,7 +33,7 @@
     </thead>
     <tbody>
     {% for d in detail %}
-    <tr>
+    <tr style="background: {{d.style}}">
         <th id="">{{ d.ip }}</th>
         <th >{{ d.node_name }}</th>
         <th >{{ d.channel }}</th>

@@ -28,24 +28,38 @@ logger = logging.getLogger('radio.views')
 # 登入首页
 def do_login(request):
     username = request.COOKIES.get('username','')
-    print username
     if username is not '':
         group = User.objects.get(username=username).group
-        user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+        user_manage, live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
         return render(request, 'index.html', locals())
     else:
-        print "11"
+        pass
     login_form = LoginForm()
     return render(request, 'login.html', locals())
+    # return render_to_response("index.html",  {"dicts":dicts,},context_instance = RequestContext(request))
 
 
 # 主页
 def index(request):
+    app = request.POST.get('app', None)
+    if app == 'Monitor':
+        response = HttpResponseRedirect('/monitor/')
+
+        username = request.POST.get('username', 'xxx')
+
+        response.set_cookie('username', username, 3600)
+
+
+        username = request.COOKIES.get('username', '')
+
+        request.session['username'] = username
+        return HttpResponseRedirect('/monitor/')
+
     try:
         username = request.COOKIES.get('username', '')
         if username is not '':
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'index.html', locals())
         if request.method == 'POST':
             login_form = LoginForm(request.POST)
@@ -54,8 +68,7 @@ def index(request):
                 username = login_form.cleaned_data["username"]
                 password = login_form.cleaned_data["password"]
                 user = authenticate(username=username, password=password)
-                print username
-                print "11"
+
                 if user is not None:
                     user.backend = 'django.contrib.auth.backends.ModelBackend' # 指定默认的登录验证方式
                     # print request.session.
@@ -104,7 +117,7 @@ def user_manage(request):
             user = User.objects.filter(Q(is_delete=0)).order_by('level')
             add = AddUserForm()
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'user_list.html', locals())
     except Exception as e:
         print e
@@ -158,7 +171,6 @@ def del_user(request):
                 admin_log.save()
         return HttpResponseRedirect('/user/')
     except Exception as e:
-        print e
         logger.error(e)
     return render(request, 'login.html', locals())
 
@@ -171,7 +183,6 @@ def chg_pwd(request):
             pwd_form = PwdForm()
         return render(request, 'chg_pwd.html', locals())
     except Exception as e:
-        print e
         logger.error(e)
         login_form = LoginForm()
     return render(request, 'login.html', locals())
@@ -196,11 +207,174 @@ def finish_pwd(request):
                     return render(request, 'chg_pwd.html', locals())
         return render(request, 'index.html', locals())
     except Exception as e:
-        print e
         logger.error(e)
         login_form = LoginForm()
     return render(request, 'login.html', locals())
 
+
+# 直播频道管理
+def live_channel(request):
+    try:
+        username = request.COOKIES.get('username', '')
+        if username is not '':
+            channel_all = Channel.objects.all()
+            group = User.objects.get(username=username).group
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
+            channel_form = AddChannelForm()
+            return render(request, 'live_channel.html', locals())
+    except Exception as e:
+        logger.error(e)
+    login_form = LoginForm()
+    return render(request, 'login.html', locals())
+
+# 开关
+def open_channel(request,id=''):
+    try:
+        username = request.COOKIES.get('username', '')
+        if username is not '':
+            if id is not '':
+                open = request.GET.get('open', '')
+                if open is not '':
+                    c = Channel.objects.get(pk=id)
+                    if c.is_open == 0:
+                        c.is_open = 1
+                        c.open_memo = '开'
+                    else:
+                        c.is_open = 0
+                        c.open_memo = '关'
+                    c.save()
+            channel_all = Channel.objects.all()
+            group = User.objects.get(username=username).group
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
+            channel_form = AddChannelForm()
+
+            return render(request, 'live_channel.html', locals())
+    except Exception as e:
+        logger.error(e)
+    login_form = LoginForm()
+    return render(request, 'login.html', locals())
+
+
+
+# 增加直播频道
+def add_channel(request):
+    try:
+        username = request.COOKIES.get('username', '')
+        if username is not '':
+            channel = AddChannelForm(request.GET)
+            if channel.is_valid():
+                channel_id = channel.cleaned_data["channel"]
+                signal = channel.cleaned_data["signal"]
+                info = channel.cleaned_data["channel_info"]
+                url = channel.cleaned_data["url"]
+                channel_add = Channel(channel=channel_id, signal=signal, channel_info=info,url=url)
+                channel_add.save()
+                admin_log = Op_log(op_name=username, op_detail=u'添加 ' + channel_id + '' + u' 直播频道')
+                admin_log.save()
+                return HttpResponseRedirect('/live_channel/')
+            else:
+
+                return render(request, 'live_channel.html', locals())
+    except Exception as e:
+        logger.error(e)
+    login_form = LoginForm()
+    return render(request, 'login.html', locals())
+
+
+# 编辑直播频道信息
+def edit_channel(request):
+    try:
+        username = request.COOKIES.get('username', '')
+        if username is not '':
+            if request.method == 'GET':
+                channel = request.GET.get('channel', None)
+                signal = request.GET.get('signal', None)
+                info = request.GET.get('info', None)
+                url = request.GET.get('url', None)
+                chl = Channel.objects.get(channel=channel)
+                chl.channel = channel
+                chl.signal = signal
+                chl.channel_info = info
+                chl.url = url
+                chl.save()
+                admin_log = Op_log(op_name=username, op_detail='修改了 '+channel+' 频道信息')
+                admin_log.save()
+        return HttpResponseRedirect('/live_channel/')
+    except Exception as e:
+        print e
+        logger.error(e)
+    login_form = LoginForm()
+    return render(request, 'login.html', locals())
+
+
+# 删除直播频道
+def del_channel(request):
+    try:
+        username = request.COOKIES.get('username', '')
+        if username is not '':
+            if request.method == 'GET':
+                del_channel = request.GET.get('delchannel', None)
+                print del_channel[4:]
+                u = Channel.objects.get(channel=del_channel[4:])
+                print u.signal
+                u.delete()
+                admin_log = Op_log(op_name=username, op_detail='删除 '+del_channel+' 直播频道')
+                admin_log.save()
+        return HttpResponseRedirect('/live_channel/')
+    except Exception as e:
+        print e
+        logger.error(e)
+    login_form = LoginForm()
+    return render(request, 'login.html', locals())
+
+
+# 直播频道接口：给出指定时间，返回开始时间和关闭是都大于的所有直播任务，返回json
+# 127.0.0.1:8000/channel_api?u=shiyun&p=e18375ee830ace536fdc4fcc9b1d6a78
+def channel_api(request):
+    try:
+        if request.GET.get('u', None) == 'shiyun' and (request.GET.get('p', None) =='e18375ee830ace536fdc4fcc9b1d6a78'):
+            result = {}
+            channel_all = Channel.objects.all()
+            result['data'] = {}
+            for c in channel_all:
+                result['data'][c.id] = {'channel':c.channel,'signal': c.signal, 'info': c.channel_info,'url':c.url}
+            result['status'] = 'ok'
+        else:
+            result = {
+                'status': 0
+            }
+            return HttpResponse(json.dumps(result), content_type="application/json")
+    except Exception as e:
+        print e
+        result = {
+                'status': 0
+        }
+        logger.error(e)
+    return HttpResponse(json.dumps(result), content_type="application/json")
+
+# 频道接口：返回任务状态，返回json
+# 127.0.0.1:8000/channel_open?u=shiyun&p=e18375ee830ace536fdc4fcc9b1d6a78
+def channel_open(request):
+    try:
+        if request.GET.get('u', None) == 'shiyun' and (request.GET.get('p', None) =='e18375ee830ace536fdc4fcc9b1d6a78'):
+            result = {}
+            channel_all = Channel.objects.all()
+            result['data'] = {}
+            for c in channel_all:
+                result['data'][c.id] = {'channel':c.channel,'signal': c.signal, 'info': c.channel_info,'url':c.url,'is_open':c.is_open}
+            result['status'] = 'ok'
+        else:
+            result = {
+                'status': 0
+            }
+            return HttpResponse(json.dumps(result), content_type="application/json")
+    except Exception as e:
+        print e
+        result = {
+                'status': 0
+        }
+        logger.error(e)
+    return HttpResponse(json.dumps(result), content_type="application/json")
 
 # 直播任务管理
 def live_radio(request):
@@ -210,14 +384,13 @@ def live_radio(request):
             radio = AddRadioForm()
             now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
             radio_task = Task.objects.filter(is_delete=0, finish_time__gte=now).order_by('start_time')
-            #paginator
-            d,radio_task = pag(request,radio_task,10)
+            count,radio_task = pag(request,radio_task,20)
             future = "active"
             history = ""
             custom = ""
             hidden = "hidden"
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'content.html', locals())
     except Exception as e:
         print e
@@ -236,13 +409,13 @@ def view_history_radio(request):
             radio = AddRadioForm()
             now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
             radio_task = Task.objects.filter(is_delete=0, finish_time__lt=now).order_by('start_time')
-            d,radio_task = pag(request,radio_task,10)
+            d,radio_task = pag(request,radio_task,20)
             future = ""
             history = "active"
             custom = ""
             hidden = "hidden"
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'content.html', locals())
     except Exception as e:
         print e
@@ -274,14 +447,14 @@ def custom_radio(request):
             history = ""
             custom = "active"
             radio_task = Task.objects.filter(**list_search)
-            d,radio_task = pag(request,radio_task,10)
+            d,radio_task = pag(request,radio_task,20)
             if len(list_search) > 1:
                 hidden = "hidden"
             else:
                 hidden = ""
                 radio_task = ""
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'content.html', locals())
     except Exception as e:
         print e
@@ -324,7 +497,8 @@ def add_radio(request):
                     reason = {"error": "请保证结束时间大约开始时间，开始时间大于当前时间，标题唯一"}
                     return HttpResponse(json.dumps(reason), content_type="application/json")
             else:
-                return HttpResponseRedirect('/live_radio/')
+                reason = {"error": "格式错误"}
+                return HttpResponse(json.dumps(reason), content_type="application/json")
     except Exception as e:
         print e
         logger.error(e)
@@ -382,16 +556,18 @@ def edit_radio(request):
     return render(request, 'login.html', locals())
 
 
-# 直播任务接口：给出指定时间，返回开始时间和关闭是都大于的所有直播任务，返回json
+# 直播任务接口：给出指定时间，返回结束大于大于给定时间的所有直播任务，返回json
+# 127.0.0.1:8000/live_api?u=shiyun&p=e18375ee830ace536fdc4fcc9b1d6a78&t=2016-08-0811:11:11
+
 def live_api(request):
-    # 127.0.0.1:8000/live_api?u=shiyun&p=e18375ee830ace536fdc4fcc9b1d6a78&t=2016-08-0811:11:11
     try:
         if request.GET.get('u', None) == 'shiyun' and (request.GET.get('p', None) =='e18375ee830ace536fdc4fcc9b1d6a78'):
             t = request.GET.get('t', None)
             t = t[:10]+' '+t[11:]
             reason = {}
             if t:
-                radio = Task.objects.filter(start_time__gte=t, finish_time__gte=t, is_delete=0)
+                # radio = Task.objects.filter(start_time__gte=t, finish_time__gte=t, is_delete=0)
+                radio = Task.objects.filter(finish_time__gte=t, is_delete=0)
                 for r in radio:
                     reason[r.id] = {'channel':r.channel,'start_time': str(r.start_time)[:19], 'finish_time': str(r.finish_time)[0:19]}
         else:
@@ -413,9 +589,14 @@ def node(request):
     try:
         username = request.COOKIES.get('username', '')
         if username is not '':
-            node_all = Node.objects.all()
+            # 通过主表查子表
+            Node.objects.filter(node_detail__node_status=2).update(node_status=2)
+            node_all = Node.objects.style_node()
+            if not Node.objects.filter(node_detail__node_status=4):
+                Node.objects.filter(~Q(node_status = 0)).update(node_status=0)
+            count,node_all = pag(request,node_all,20)
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'node.html', locals())
     except Exception as e:
         print e
@@ -426,14 +607,13 @@ def node(request):
 
 # 节点详情
 def node_detail(request):
-    print "123123"
     try:
         username = request.COOKIES.get('username', '')
         if username is not '':
             ip = request.GET.get('name', None)
-            detail = Node_detail.objects.filter(node_name=ip)
+            detail = Node_detail.objects.style_node_detail(ip)
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'node_detail.html', locals())
     except Exception as e:
         print e
@@ -449,7 +629,7 @@ def op_log(request):
         if username is not '':
             log = Op_log.objects.all().order_by('-id')
             group = User.objects.get(username=username).group
-            user_manage, live_manage, node_manage, op_manage = permission_base(str(group))
+            user_manage,live_channel, live_manage, node_manage, op_manage = permission_base(str(group))
             return render(request, 'operation_log.html', locals())
     except Exception as e:
         print e

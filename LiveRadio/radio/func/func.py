@@ -20,6 +20,11 @@ def permission_base(user):
         user_manage = {
             'base': "",
         }
+        live_channel = {
+            'base': "",
+            'op': "",
+            "edit": ""
+        }
         live_manage = {
             'base': "",
             'op': "",
@@ -35,6 +40,11 @@ def permission_base(user):
     elif user == 'user':
         user_manage = {
             'base': "none"
+        }
+        live_channel = {
+            'base': "",
+            'op': "",
+            "edit": ""
         }
         live_manage = {
             'base': "",
@@ -57,6 +67,11 @@ def permission_base(user):
             'op': "none",
             "edit": "none"
         }
+        live_channel = {
+            'base': "",
+            'op': "none",
+            "edit": ""
+        }
         node_manage = {
             'base': "",
             'op': "none"
@@ -64,11 +79,11 @@ def permission_base(user):
         op_manage = {
             'base': "none"
         }
-    return user_manage, live_manage, node_manage, op_manage
+    return user_manage,live_channel, live_manage, node_manage, op_manage
 
 if __name__ == "__main__":
 
     # list_dd = not_null_none(a="aa",b="",c=u"",d="11",start_time="1",start_time_2="2",finish_time="1",finish_time_2="3")
     # print list_dd
-    a,b,c,d = permission_base('user')
+    a,b,c,d,e = permission_base('user')
     print a, b, c, d

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
-    <meta http-equiv="refresh" content="300">
+    <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
     <title>运维直播管理平台</title>
 
@@ -42,6 +42,7 @@
             <ul class="nav navbar-nav" >
                 <li ><a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
                 <li style="display: {{ user_manage.base }}"><a href="{% url 'user_manage' %}" ><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+                <li style="display: {{ live_channel.base }}"><a href="{% url 'live_channel' %}"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;直播频道管理</a></li>
                 <li style="display: {{ live_manage.base }}"><a href="{% url 'live_radio' %}"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;直播任务管理</a></li>
                 <li style="display: {{ node_manage.base }}"><a href="{% url 'node' %}"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;节点管理</a></li>
                 <li style="display: {{ op_manage.base }}"><a href="{% url 'op_log' %}"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;操作记录查询</a></li>

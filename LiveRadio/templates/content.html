@@ -98,44 +98,7 @@
                 <button class="btn btn-default dropdown-toggle" style="display: {{ live_manage.edit }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     操作<span class="caret"></span>
                 </button>
-                                    <script language="javascript">
-                                    function delRadio(event) {
-                                        var id = event.id;
-                                        var delid = document.getElementById(id).innerHTML;
-                                        var delname = document.getElementById(id+"title").innerHTML;
-                                        var delradio = document.getElementById('delradio');
-                                        var delradioid = document.getElementById('delradioid');
-                                        delradio.value = '直播标题'+delname;
-                                        delradioid.value = '直播编号'+delid;
-                                        delradio.readonly="true";
-                                        delradioid.readonly="true"
-                                    }
-                                    </script>
-                                    <script language="javascript">
-                                    function edRadio(event) {
-                                        var id = event.id;
-                                        var radio = document.getElementById(id).innerHTML;
-                                        var title = document.getElementById(id+"title").innerHTML;
-                                        var description = document.getElementById(id+"description").innerHTML;
-                                        var channel = document.getElementById(id+"channel").innerHTML;
-                                        var start_time = document.getElementById(id+"start_time").innerHTML;
-                                        var finish_time = document.getElementById(id+"finish_time").innerHTML;
-                                        var myRadio = document.getElementById('myRadio');
-                                        var radio_id = document.getElementById('radio_id');
-                                        var radio_title = document.getElementById('radio_title');
-                                        var radio_description = document.getElementById('radio_description');
-                                        var radio_channel = document.getElementById('radio_channel');
-                                        var radio_start_time = document.getElementById('radio_start_time');
-                                        var radio_finish_time = document.getElementById('radio_finish_time');
-                                        radio_id.value = radio;
-                                        radio_title.value = title;
-                                        radio_description.value = description;
-                                        radio_channel.value = channel;
-                                        radio_start_time.value = start_time;
-                                        radio_finish_time.value = finish_time;
-                                    }
 
-                                    </script>
                 <ul class="dropdown-menu">
                     <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#radioedite" onclick="edRadio(this)">编辑</a></li>
                     <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#radioDel" onclick="delRadio(this)">删除</a></li>
@@ -145,6 +108,43 @@
         </td>
     </tr>
     {% endfor %}
+    <script language="javascript">
+        function delRadio(event) {
+            var id = event.id;
+            var delid = document.getElementById(id).innerHTML;
+            var delname = document.getElementById(id+"title").innerHTML;
+            var delradio = document.getElementById('delradio');
+            var delradioid = document.getElementById('delradioid');
+            delradio.value = '直播标题'+delname;
+            delradioid.value = '直播编号'+delid;
+            delradio.readonly="true";
+            delradioid.readonly="true"
+        }
+        </script>
+        <script language="javascript">
+        function edRadio(event) {
+            var id = event.id;
+            var radio = document.getElementById(id).innerHTML;
+            var title = document.getElementById(id+"title").innerHTML;
+            var description = document.getElementById(id+"description").innerHTML;
+            var channel = document.getElementById(id+"channel").innerHTML;
+            var start_time = document.getElementById(id+"start_time").innerHTML;
+            var finish_time = document.getElementById(id+"finish_time").innerHTML;
+            var myRadio = document.getElementById('myRadio');
+            var radio_id = document.getElementById('radio_id');
+            var radio_title = document.getElementById('radio_title');
+            var radio_description = document.getElementById('radio_description');
+            var radio_channel = document.getElementById('radio_channel');
+            var radio_start_time = document.getElementById('radio_start_time');
+            var radio_finish_time = document.getElementById('radio_finish_time');
+            radio_id.value = radio;
+            radio_title.value = title;
+            radio_description.value = description;
+            radio_channel.value = channel;
+            radio_start_time.value = start_time;
+            radio_finish_time.value = finish_time;
+        }
+        </script>
     </tbody>
 </table>
 
@@ -155,7 +155,7 @@
         {% else %}
            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
         {% endif %}
-        {% for x in d %}
+        {% for x in count %}
         {# Each "contact" is a Contact model object. #}
         <li><a href="?page={{ x }}">{{ x }}</a></li>
         {% endfor %}

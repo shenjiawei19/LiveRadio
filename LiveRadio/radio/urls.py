@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Myblog URL Configuration
+"""Radio URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -19,8 +19,10 @@ from django.contrib import admin
 from django.conf import settings
 from views import do_login, index, do_logout, user_manage, live_radio, node, add_user, \
     del_user, add_radio, del_radio, edit_radio, view_history_radio, custom_radio, op_log, \
-    node_detail, test, live_api, chg_pwd, finish_pwd
+    node_detail, test, live_api, chg_pwd, finish_pwd, live_channel, add_channel, edit_channel, \
+    del_channel, channel_api, open_channel, channel_open
 from django.views.decorators.cache import cache_page
+
 urlpatterns = [
     url(r'^$', do_login, name='do_login'),
     url(r'^index/$', index, name='index'),
@@ -28,18 +30,24 @@ urlpatterns = [
     url(r'^user/$', user_manage, name='user_manage'),
     url(r'live_radio/$', live_radio, name='live_radio'),
     url(r'node/$', node, name='node'),
-    url(r'node_detail/', node_detail, name='node_detail'),
+    url(r'node_detail/$', node_detail, name='node_detail'),
     url(r'^user/add_user/$', add_user, name='add_user'),
     url(r'^user/del_user/$', del_user, name='del_user'),
     url(r'^live_radio/add_radio/$', add_radio, name='add_radio'),
     url(r'^live_api/$', live_api, name='live_api'),
-    url(r'^test/$', test,name='test'),
+    url(r'^channel_open/$', channel_open, name='channel_open'),
+    url(r'^test/$', test, name='test'),
     url(r'^live_radio/del_radio/$', del_radio, name='del_radio'),
     url(r'^live_radio/edit_radio/$', edit_radio, name='edit_radio'),
     url(r'^live_radio/view_history_radio/$', view_history_radio, name='view_history_radio'),
     url(r'^live_radio/custom_radio/$', custom_radio, name='custom_radio'),
     url(r'^op_log/$', op_log, name='op_log'),
     url(r'^chg_pwd/$', chg_pwd, name='chg_pwd'),
-    url(r'^finish_pwd/$', finish_pwd, name='finish_pwd')
-
+    url(r'^finish_pwd/$', finish_pwd, name='finish_pwd'),
+    url(r'^live_channel/$', live_channel, name='live_channel'),
+    url(r'^open_channel/(?P<id>[0-9]+)/$', open_channel, name='open_channel'),
+    url(r'^add_channel/', add_channel, name='add_channel'),
+    url(r'^edit_channel/', edit_channel, name='edit_channel'),
+    url(r'^del_channel/', del_channel, name='del_channel'),
+    url(r'^channel_api/', channel_api, name='channel_api')
 ]
