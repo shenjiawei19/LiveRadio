@@ -1,0 +1,100 @@
+{% extends 'monitor_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<!--主体-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1 >宽带计费统计</h1>
+            </div>
+                    <ul class="nav nav-tabs" >
+                        <li class="active" >
+                            <a href="{% url 'flow_count' %}" >上月统计</a>
+                        </li>
+                        <li class="active" >
+                            <a href="{% url 'flow_count' %}?month=now" >当月统计</a>
+                        </li>
+{#                        <li class="active" >#}
+{#                            <a href="{% url 'flow_count_history' %}" >历史统计</a>#}
+{#                        </li>#}
+                        <a class="btn btn-default dropdown-toggle"  href="" role="button" data-toggle="modal" data-target="#export" >导出报表</a>
+                        <a class="btn btn-default dropdown-toggle"  href="{% url 'auto_count' %}?month=last"> 上月自动计费</a>
+                        <a class="btn btn-default dropdown-toggle"  href="{% url 'auto_count' %}" >当月预算计费</a>
+
+{#                        onclick="exel(this)"#}
+{#           <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#channeldel" onclick="delChannel(this)">删除</a></li>#}
+
+                    </ul>
+            <script language="javascript">
+                function exel(event) {
+                    var id = event.id;
+                    var channel = document.getElementById(id+"channel").innerHTML;
+                    $('#delchannel').attr("value","频道号为"+channel);
+                }
+            </script>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>地区</th>
+                    <th>供应商</th>
+                    <th>名称</th>
+                    <th>月份</th>
+                    <th>计费金额</th>
+                    <th>详情</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for x in all %}
+                <tr>
+                    <th id = "">{{ x.region }}</th>
+                    <th id = "">{{ x.operator }}</th>
+                    <th id = "">{{ x.name }}</th>
+                    <td id = "">{{ x.month }}</td>
+                    <td id = "">{{ x.money }}</td>
+                    <td >
+                        <div role="presentation" class="dropdown">
+                            <a class="btn btn-default dropdown-toggle"  href="{% url 'flow_detail' %}/?name={{ x.name }}" role="button" >
+                                详细信息
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--主体-->
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Modal1 导出报表-->
+<div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="exportLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exportLabel">请输入年月</h4>
+            </div>
+            <form action="{% url 'export' %}" method="get">
+                <input type="text" name='date' class="form-control" value="" >
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary" >确认</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div><!-- Modal1 -->
+
+{% endblock %}

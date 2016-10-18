@@ -1,0 +1,284 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<!--导航-->
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+    <div class="list-group">
+        <a href="{% url 'live_radio' %}" class="list-group-item active">刷新直播任务</a>
+        <a href="" role="button"  class="list-group-item" style="display: {{ live_manage.op }}" data-toggle="modal" data-target="#myRadio">添加直播任务</a>
+
+    </div>
+</div>
+<div class="col-md-10">
+<div class="page-header">
+    <h1>直播任务管理</h1>
+</div>
+            <ul class="nav nav-tabs" >
+                <li class="{{ future }}">
+                    <a href="{% url 'live_radio' %}" >直播任务列表</a>
+                </li>
+                <li class="{{ history }}">
+                    <a href="{% url 'view_history_radio' %}" >历史直播任务查询</a>
+                </li>
+                <li class="{{ custom }}">
+                    <a href="{% url 'custom_radio' %}" >高级直播任务检索</a>
+                </li>
+            </ul>
+            <ul class="nav nav-tabs" {{ hidden }}>
+            <form action="{% url 'custom_radio' %}" method="GET">
+                {% csrf_token %}
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title">直播编号</label>
+                        <input name="search_id" placeholder= "直播编号"   class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">直播标题</label>
+                        <input name="search_title" placeholder= "直播标题"  class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="describe">直播任务描述</label>
+                        <input name="search_description" placeholder= "直播任务描述"  class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">状态</label>
+                        <input name="search_status" placeholder= "状态"  class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="channel">频道号</label>
+                        <input name="search_channel" placeholder= "频道号"  class ="form-control" value="">
+                    </div>
+                    <div class="form-group" >
+                        <label for="start_time">开始时间</label>
+                        <input name="search_start_time_range1" placeholder= "范围"  class ="form_datetime" value="">
+                        <input name="search_start_time_range2" placeholder= "范围"  class ="form_datetime" value="">
+                    </div>
+                    <div class="form-group" >
+                        <label for="finish_time">结束时间</label>
+                        <input name="search_finish_time_range1" placeholder= "范围"  class ="form_datetime" value="">
+                        <input name="search_finish_time_range2" placeholder= "范围"  class ="form_datetime" value="">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">查询</button>
+            </div>
+            </form>
+            </ul>
+<table class="table">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>直播标题</th>
+        <th>直播任务描述</th>
+        <th>频道号</th>
+        <th>状态</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>更新时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for task in radio_task %}
+    <tr>
+        <th id="{{forloop.counter}}">{{ task.id }}</th>
+        <th scope="row" id="{{forloop.counter}}title">{{ task.title }}</th>
+        <td id="{{forloop.counter}}description">{{ task.description }}</td>
+        <td id="{{forloop.counter}}channel">{{ task.channel }}</td>
+        <td id="{{forloop.counter}}task_status">{{ task.task_status }}</td>
+        <td id="{{forloop.counter}}start_time">{{ task.start_time |date:"Y-m-d H:i:s" }}</td>
+        <td id="{{forloop.counter}}finish_time">{{ task.finish_time |date:"Y-m-d H:i:s"}}</td>
+        <td id="{{forloop.counter}}update_time">{{ task.update_time |date:"Y-m-d H:i:s"}}</td>
+        <td>
+            <div role="presentation" class="dropdown">
+                <button class="btn btn-default dropdown-toggle" style="display: {{ live_manage.edit }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    操作<span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#radioedite" onclick="edRadio(this)">编辑</a></li>
+                    <li><a id= "{{forloop.counter}}" href="" role="button" data-toggle="modal" data-target="#radioDel" onclick="delRadio(this)">删除</a></li>
+{#                    <li><a href="#">全局置顶</a></li>#}
+                </ul>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    <script language="javascript">
+        function delRadio(event) {
+            var id = event.id;
+            var delid = document.getElementById(id).innerHTML;
+            var delname = document.getElementById(id+"title").innerHTML;
+            var delradio = document.getElementById('delradio');
+            var delradioid = document.getElementById('delradioid');
+            delradio.value = '直播标题'+delname;
+            delradioid.value = '直播编号'+delid;
+            delradio.readonly="true";
+            delradioid.readonly="true"
+        }
+        </script>
+        <script language="javascript">
+        function edRadio(event) {
+            var id = event.id;
+            var radio = document.getElementById(id).innerHTML;
+            var title = document.getElementById(id+"title").innerHTML;
+            var description = document.getElementById(id+"description").innerHTML;
+            var channel = document.getElementById(id+"channel").innerHTML;
+            var start_time = document.getElementById(id+"start_time").innerHTML;
+            var finish_time = document.getElementById(id+"finish_time").innerHTML;
+            var myRadio = document.getElementById('myRadio');
+            var radio_id = document.getElementById('radio_id');
+            var radio_title = document.getElementById('radio_title');
+            var radio_description = document.getElementById('radio_description');
+            var radio_channel = document.getElementById('radio_channel');
+            var radio_start_time = document.getElementById('radio_start_time');
+            var radio_finish_time = document.getElementById('radio_finish_time');
+            radio_id.value = radio;
+            radio_title.value = title;
+            radio_description.value = description;
+            radio_channel.value = channel;
+            radio_start_time.value = start_time;
+            radio_finish_time.value = finish_time;
+        }
+        </script>
+    </tbody>
+</table>
+
+<nav class="pull-right">
+    <ul class="pagination">
+        {% if radio_task.has_previous %}
+            <li><a href="?page={{ radio_task.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        {% else %}
+           <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        {% endif %}
+        {% for x in count %}
+        {# Each "contact" is a Contact model object. #}
+        <li><a href="?page={{ x }}">{{ x }}</a></li>
+        {% endfor %}
+        {% if radio_task.has_next %}
+            <li><a href="?page={{ radio_task.next_page_number }}" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+        {% else %}
+           <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myRadio" tabindex="-1" role="dialog" aria-labelledby="myRadioLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="display: {{ live_manage.op }}" id="myRadioLabel">添加直播任务</h4>
+            </div>
+{#            <form action="{% url 'add_radio' %}" method="post">#}
+{#                {% csrf_token %}#}
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title">直播标题</label>
+                        {{ radio.title }}
+                    </div>
+                    <div class="form-group">
+                        <label for="describe">直播任务描述</label>
+                        {{ radio.description }}
+                    </div>
+                    <div class="form-group">
+                        <label for="channel">频道号</label>
+                        {{ radio.channel }}
+                    </div>
+                    <div class="form-group" >
+                        <label for="start_time">开始时间</label>
+                        {{ radio.start_time }}
+                    </div>
+                    <div class="form-group" >
+                        <label for="finish_time">结束时间</label>
+                        {{ radio.finish_time }}
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="add_radio" type="submit" class="btn btn-primary">提交</button>
+            </div>
+            <div class="tips-error bg-danger" id="Error"></div>
+
+
+        </div>
+    </div>
+</div><!-- Modal -->
+    <!-- Modal2 -->
+<div class="modal fade" id="radioDel" tabindex="-1" role="dialog" aria-labelledby="radioDelLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="userDelLabel">确认删除直播任务</h4>
+            </div>
+            <form action="{% url 'del_radio' %}" method="get">
+                <input type="text"  readonly='false' id='delradioid' name='delradioid' class="form-control" value="11" >
+                <input type="text"  readonly='false' id='delradio' name='delradio' class="form-control" value="11" >
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div><!-- Modal2 -->
+<!-- Modal3 -->
+<div class="modal fade" id="radioedite" tabindex="-1" role="dialog" aria-labelledby="radioediteLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="radioediteLabel">编辑直播任务</h4>
+            </div>
+            <form action="{% url 'edit_radio' %}" method="GET">
+                {% csrf_token %}
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title">直播编号</label>
+                        <input id= "radio_id" name="radio_id" placeholder= "直播编号" required= "required" readonly="True" class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">直播标题</label>
+                        <input id= "radio_title" name="radio_title" placeholder= "直播标题" required= "required" class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="describe">直播任务描述</label>
+                        <input id= "radio_description" name="radio_description" placeholder= "直播任务描述" required= "required" class ="form-control" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="channel">频道号</label>
+                        <input id= "radio_channel" name="radio_channel" placeholder= "频道号" required= "required" class ="form-control" value="">
+                    </div>
+                    <div class="form-group" >
+                        <label for="start_time">开始时间</label>
+                        <input id= "radio_start_time" name="radio_start_time" placeholder= "开始时间" required= "required" class ="form_datetime" value="">
+                    </div>
+                    <div class="form-group" >
+                        <label for="finish_time">结束时间</label>
+                        <input id= "radio_finish_time" name="radio_finish_time" placeholder= "结束时间" required= "required" class ="form_datetime" value="">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div><!-- Modal3 -->
+</div>
+</div>
+</div>
+  <script type="text/javascript">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+{#  $(".form_datetime").z-index:101;  #}
+  </script>
+
+{% endblock %}

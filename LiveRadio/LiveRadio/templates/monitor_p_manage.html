@@ -1,0 +1,113 @@
+{% extends 'monitor_base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!--导航-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">项目监控管理</a>
+                <a href="" role="button"  class="list-group-item" data-toggle="modal" data-target="#myModal">添加项目</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="page-header">
+                <h1>项目监控管理</h1>
+            </div>
+                    <ul class="nav nav-tabs" >
+                        <li>
+                            <a href="#" class="list-group-item active">项目列表</a>
+                        </li>
+                        <li>
+                            <a href="#" >设备列表</a>
+                        </li>
+                        <li>
+                            <a href="#" >人员列表</a>
+                        </li>
+                    </ul>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>项目名称</th>
+                    <th>项目相关Url</th>
+                    <th>项目状态</th>
+                    <th>人员列表</th>
+                    <th>相关设备</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th id="">1</th>
+                    <th id="">cas项目</th>
+                    <td id="">127.0.0.1</td>
+                    <td id="">启用中</td>
+
+                    <td id="">
+                            <a class="btn btn-default dropdown-toggle"  href="#" role="button" >
+                                人员详情
+                            </a>
+                    </td>
+                    <td id="">
+                            <a class="btn btn-default dropdown-toggle"  href="" role="button" >
+                                设备详情
+                            </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加项目</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" id="addname" class="form-control" placeholder="项目名称">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="addpassword" class="form-control" placeholder="项目相关Url">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="addpassword1" class="form-control" placeholder="项目状态">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="addemail" class="form-control" placeholder="人员列表">
+                    </div>
+                    <div class="form-group">
+                        <label for="addyonghuzu">相关设备</label>
+                        <select id="addyonghuzu" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

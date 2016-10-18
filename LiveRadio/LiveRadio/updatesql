@@ -1,0 +1,2 @@
+ALTER TABLE `radio_channel` ADD COLUMN `is_open` smallint DEFAULT %s NOT NULL;
+ALTER TABLE `radio_channel` ADD COLUMN `open_memo` varchar(3) DEFAULT '关' NOT NULL; 

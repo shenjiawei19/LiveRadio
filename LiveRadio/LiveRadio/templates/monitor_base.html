@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+{#    <meta http-equiv="refresh" content="60">#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>视云监控系统</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.blue.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-maizi.css'  %}"/>
+
+    <!--时钟-->
+    <link href="{% static 'css/docs.css' %}" rel="stylesheet">
+    <link href="{% static 'css/datetimepicker.css' %}" rel="stylesheet">
+    <!--时钟-->
+
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!--小屏幕导航按钮和logo-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{% url 'monitor' %}" class="navbar-brand">视云监控系统</a>
+        </div>
+        <!--小屏幕导航按钮和logo-->
+        <!--导航-->
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+{#                <li class="active" ><a href="{% url 'monitor' %}"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;总览</a></li>#}
+
+                <li class="dropdown">
+				<a class="glyphicon glyphicon-list-alt" data-toggle="dropdown">
+					监控总览 <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="{% url 'monitor' %}">商用宽带</a></li>
+					<li><a href="{% url 'flow' %}">自建宽带</a></li>
+                    <li><a href="{% url 'all_node' %}">自建汇总宽带</a></li>
+				</ul>
+                </li>
+
+                <li class="dropdown">
+{#				<a class="glyphicon glyphicon-home" data-toggle="dropdown">#}
+{#					主机管理 <b class="caret"></b>#}
+{#				</a>#}
+				<ul class="dropdown-menu">
+
+				</ul>
+                </li>
+                <li class="dropdown">
+{#				<a href="#" class="glyphicon glyphicon-home" data-toggle="dropdown">#}
+{#					权限管理 <b class="caret"></b>#}
+{#				</a>#}
+				<ul class="dropdown-menu">
+
+				</ul>
+                </li>
+
+                <li class="dropdown">
+				<a href="#" class="glyphicon glyphicon-tags" data-toggle="dropdown">
+					统计 <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="{% url 'flow_count' %}">宽带流量统计</a></li>
+				</ul>
+                </li>
+
+                <li class="dropdown">
+				<a href="#" class="glyphicon glyphicon-home" data-toggle="dropdown">
+					web监控 <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="{% url 'p_manage' %}">项目管理</a></li>
+                    <li><a href="{% url 'url_monitor' %}">URL监控</a></li>
+					<li><a href="{% url 'process_test' %}">流程测试</a></li>
+				</ul>
+                </li>
+
+            </ul>
+        </div>
+        <!--导航-->
+
+    </div>
+</nav>
+<!--导航-->
+
+<!--内容-->
+      {% block content %}{% endblock %}
+<!--内容-->
+
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="bottom1">
+                    Copyright&nbsp;©&nbsp;2016-2020&nbsp;&nbsp;沈佳巍制作&nbsp;&nbsp;蜀ICP备13014270号-5
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer-->
+
+
+</body>
+</html>

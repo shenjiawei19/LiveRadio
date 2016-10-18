@@ -1,0 +1,1 @@
+ALTER TABLE `radio_channel` ADD COLUMN `is_open` smallint DEFAULT %s NOT NULL;

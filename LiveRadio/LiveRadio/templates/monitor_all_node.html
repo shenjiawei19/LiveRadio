@@ -1,0 +1,96 @@
+
+{% extends 'monitor_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <div id="container" style="width:1200px;height: 500px">
+    </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    <!--charts-->
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'js/highcharts.js' %}"></script>
+    <script src="{% static 'js/exporting.js' %}"></script>
+    <!--charts-->
+
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    renderTo: 'container', //图表放置的容器，DIV
+                    defaultSeriesType: 'spline', //图表类型line(折线图),
+                    zoomType: 'x'   //x轴方向可以缩放
+                },
+                title: {
+                    text: '实时流量汇总监控图',
+                    style: {
+                        color: '#FF3030'
+                    }
+                },
+                subtitle:{
+                    text:'宽带流量',
+                    style: {
+                        color: '#8DEEEE'
+                    }
+                },
+
+                xAxis:{
+                    tickInterval: 5,
+                    categories:{{ clock }}
+                },
+                yAxis: {
+                    title: {
+                        text: '流量值(MBps)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                plotOptions: {
+                    series: {
+                        marker: {
+                            radius: 1,  //曲线点半径，默认是4
+{#                            symbol: 'diamond' //曲线点类型："circle", "square", "diamond", "triangle","triangle-down"，默认是"circle"#}
+                        },
+                        events: {
+                            click: function(event) {
+                                alert(this.name);
+                            }
+                        }
+                    }
+                },
+                credits:{
+                    // 默认值，如果想去掉版权信息，设置为false即可
+                    //enabled:false,
+                    // 显示的文字
+                    text:'ismartv',
+                    // 链接地址
+                    href:"http://www.shenjiawei.cn"
+                    // 位置设置
+                    //position:{
+                    //    align: 'left',
+                    //    x: 400,
+                    //    verticalAlign: 'bottom',
+                    //    y: -100
+                    //}
+                    // 样式设置
+                    //style: {
+                    //    cursor: 'pointer',
+                    //    color: 'red',
+                    //    fontSize: '30px'
+                    //}
+                },
+                series:[ {
+                    name:'宽带汇总数据',
+                    data:{{ value }}
+                }]
+            });
+        });
+    </script>
+
+{% endblock %}

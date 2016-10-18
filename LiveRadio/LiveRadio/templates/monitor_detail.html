@@ -1,0 +1,94 @@
+{% extends 'monitor_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+    <!--主体-->
+    <div class="container">
+        <div class="col-md-8">
+            <div class="page-header">
+                <h1 >宽带计费每日详细信息</h1>
+            </div>
+            <form action="{% url 'flow_detail' %}" method="get">
+                <label class="btn" for="start_time">时间</label>
+                <input name="day" class ="form_datetime" value="">
+                <input name="name" style="display: none" class ="form_datetime" value={{ name }}>
+                <button type="submit" class="btn btn-primary">查询</button>
+            </form>
+            <div id="container" style="width:1000px;height: 400px">
+            </div>
+        </div>
+    </div>
+    <!--主体-->
+
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/application.js' %}"></script>
+    <!--charts-->
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'js/highcharts.js' %}"></script>
+    <script src="{% static 'js/exporting.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+    <!--charts-->
+
+
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    renderTo: 'container', //图表放置的容器，DIV
+                    defaultSeriesType: 'spline', //图表类型line(折线图),
+                    zoomType: 'x'   //x轴方向可以缩放
+                },
+                title: {
+                    text: '日详细流量图',
+                    style: {
+                        color: '#8DEEEE'
+                    }
+                },
+
+                xAxis:{
+                    tickInterval: 5,
+                    categories:{{ clock }}
+                },
+                yAxis: {
+                    title: {
+                        text: '流量值(MBps)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                plotOptions: {
+                    series: {
+                        marker: {
+                            radius: 1  //曲线点半径，默认是4
+                        },
+                        events: {
+                            click: function(event) {
+                                alert(this.name);
+                            }
+                        }
+                    }
+                },
+                credits:{
+                    text:'ismartv',
+                    href:"http://www.shenjiawei.cn"
+                },
+                series:[ {
+                    name: '{{ name }}',
+                    data: {{ value }}
+                }]
+            });
+        });
+    </script>
+{% endblock %}
